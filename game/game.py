@@ -22,7 +22,8 @@ class Game(ABC):
         return f'{np.flip(np.transpose(np.array(self.board)), axis=0)}'
 
     def next_round(self):
-        self.next = self.base**(int(np.random.uniform(self.values[0], self.values[-1])))
+        self.next = self.base**(int(np.random.uniform(self.values[0],
+                                                      self.values[-1])))
         print(self.next)
         lose = True
         for i in range(self.rows):
@@ -241,7 +242,8 @@ class Game(ABC):
             self.values *= self.base**(newval//self.target + 1)
             self.target = newval*self.base
             new_min = np.min(self.values)
-            print(f'Congrats! You hit the goal of {self.target/self.base}. New goal: {self.target}')
+            print(f'Congrats! You hit the goal of {self.target//self.base}.',
+                  f'New goal: {self.target}')
             to_update = []
             for row in range(self.rows):
                 for column in range(self.height):
