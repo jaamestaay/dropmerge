@@ -276,3 +276,7 @@ class Game(ABC):
             self.resolve(row, self.heights[row]-1)
             self.update_values()
             print(self)
+
+
+game = Game()
+game.play()
